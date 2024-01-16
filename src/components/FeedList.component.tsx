@@ -6,8 +6,7 @@ import NewPostForm from "./NewPostForm.component";
 import { useLocation } from "react-router-dom";
 
 function FeedList() {
-
- const {pathname} =  useLocation()
+  const { pathname } = useLocation();
   const [isShowForm, setIsShowForm] = useState(false);
   const [refetch, setRefetch] = useState(true);
   const closeAfterPost = (isShowForm: boolean) => {
@@ -22,8 +21,8 @@ function FeedList() {
   if (isLoading) return <div className="font-bold text-2xl">Loading....</div>;
 
   return (
-    <div className={`space-y-10 w-full max-w-screen-md`} >
-      <div className={`${pathname !== '/feed' ? "visible":"invisible"}`}>
+    <div className={`space-y-10 w-full max-w-screen-md`}>
+      <div className={`${pathname !== "/feed" ? "visible" : "invisible"}`}>
         <button
           onClick={() => setIsShowForm(!isShowForm)}
           className="relative p-2 font-semibold bg-[#ff748d] rounded-md px-6 text-white md:p-2 md:px-8"
@@ -40,8 +39,6 @@ function FeedList() {
               name={eachPost.email}
               time={eachPost.email}
               content={eachPost.content}
-              postId={eachPost._id}
-              isEditable={true}
             />
           </Fragment>
         ))}

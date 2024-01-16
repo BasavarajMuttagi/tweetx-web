@@ -1,4 +1,4 @@
-function FollowingCard({ name, email, _id }: any) {
+function FollowingCard({ name}: any) {
   return (
     <div className="rounded p-3 flex items-center max-w-screen-md">
       <div>

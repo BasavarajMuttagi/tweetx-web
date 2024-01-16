@@ -31,4 +31,4 @@ function UserCard({ name, _id }: any) {
 }
 
 export default UserCard;
-// userIdToBeFollowed
+

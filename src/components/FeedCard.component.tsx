@@ -1,4 +1,4 @@
-function FeedCard({ name, time, content ,postId,isEditable}: any) {
+function FeedCard({ name, time, content}: any) {
   return (
     <div className="max-w-screen-md drop-shadow-lg bg-[#f9f9f9] rounded-3xl p-5 flex items-baseline">
       <div>
