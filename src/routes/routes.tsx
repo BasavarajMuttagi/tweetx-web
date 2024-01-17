@@ -13,6 +13,7 @@ import Home from "../pages/Home.page";
 import FollowersList from "../components/FollowersList.component";
 import Private from "./Private";
 import Public from "./Public";
+import PostsList from "../components/PostsList.component";
 
 const routes = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ const routes = createBrowserRouter([
             children: [
               {
                 path: "post",
-                element: <FeedList />,
+                element: <PostsList />,
               },
               {
                 path: "followers",

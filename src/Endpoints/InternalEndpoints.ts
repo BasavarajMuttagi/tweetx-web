@@ -99,3 +99,13 @@ export const unfollowAUser = async (body: any) => {
     console.log(error);
   }
 };
+
+
+export const getFeed = async () => {
+  try {
+    const record = await apiClient.get("/auth/feed");
+    return record.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -17,7 +17,7 @@ function Profile() {
         <div className="w-[30%]">
           <div className="w-28 h-28">
             <img
-              src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+              src={data?.stats?.profile}
               alt="Movie"
               className="aspect-square rounded-full"
             />

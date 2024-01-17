@@ -32,6 +32,10 @@ function FollowingList() {
             email={eachUser.email}
             _id={eachUser._id}
             refetch={refetch}
+            currentUserFollowing={eachUser.following}
+            currentUserFollowers={eachUser.followers}
+            currentUserPosts={eachUser.posts}
+            profile={eachUser.profile}
           />
           <div className="broder-t bg-black border"></div>
         </Fragment>

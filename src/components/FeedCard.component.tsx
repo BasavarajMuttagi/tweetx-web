@@ -1,10 +1,10 @@
-function FeedCard({ name, time, content}: any) {
+function FeedCard({ name, time, content,profile}: any) {
   return (
     <div className="max-w-screen-md drop-shadow-lg bg-[#f9f9f9] rounded-3xl p-5 flex items-baseline">
       <div>
         <div className="w-20 h-20">
           <img
-            src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+            src={profile}
             alt="Movie"
             className="aspect-square rounded-full"
           />
