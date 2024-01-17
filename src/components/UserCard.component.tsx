@@ -1,6 +1,6 @@
-import { followAUser } from "../Endpoints/InternalEndpoints";
+import { followAUser, unfollowAUser } from "../Endpoints/InternalEndpoints";
 
-function UserCard({ name, _id }: any) {
+function UserCard({ name, _id, isFollowing }: any) {
   return (
     <div className="rounded p-3 flex items-center max-w-screen-md">
       <div>
@@ -19,16 +19,26 @@ function UserCard({ name, _id }: any) {
             Following {500}
           </h3>
         </div>
-        <button
-          onClick={() => followAUser({ userIdToBeFollowed: _id })}
-          className=" h-fit relative p-2 font-semibold bg-[#ff748d] rounded-md px-6 text-white md:p-2 md:px-8"
-        >
-          Follow
-        </button>
+        {isFollowing ? (
+          <button
+            onClick={() => followAUser({ userIdToBeFollowed: _id })}
+            className=" h-fit relative p-2 font-semibold bg-[#ff748d] rounded-md px-6 text-white md:p-2 md:px-8"
+          >
+            Follow
+          </button>
+        ) : (
+          <button
+            onClick={async () => {
+              unfollowAUser({ userIdToBeUnFollowed: _id });
+            }}
+            className=" h-fit relative p-2 font-semibold  rounded-md px-6 text-slate-800 md:p-2 md:px-8"
+          >
+            Following
+          </button>
+        )}
       </div>
     </div>
   );
 }
 
 export default UserCard;
-

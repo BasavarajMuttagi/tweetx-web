@@ -1,4 +1,6 @@
-function FollowingCard({ name}: any) {
+import { unfollowAUser } from "../Endpoints/InternalEndpoints";
+
+function FollowingCard({ name, _id, refetch }: any) {
   return (
     <div className="rounded p-3 flex items-center max-w-screen-md">
       <div>
@@ -13,9 +15,16 @@ function FollowingCard({ name}: any) {
       <div className="flex justify-between items-baseline w-full">
         <div className="space-y-2 p-4">
           <h1 className="font-bold text-2xl">{name}</h1>
-          <h3 className="text-xs font-medium text-slate-500">Following {800}</h3>
+          <h3 className="text-xs font-medium text-slate-500">
+            Following {800}
+          </h3>
         </div>
-        <button className=" h-fit relative p-2 font-semibold  rounded-md px-6 text-slate-800 md:p-2 md:px-8">
+        <button
+          onClick={async () => {
+            unfollowAUser({ userIdToBeUnFollowed: _id }), refetch();
+          }}
+          className=" h-fit relative p-2 font-semibold  rounded-md px-6 text-slate-800 md:p-2 md:px-8"
+        >
           Following
         </button>
       </div>

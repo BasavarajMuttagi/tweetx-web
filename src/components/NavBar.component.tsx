@@ -35,7 +35,7 @@ function NavBar() {
           </li>
           <li className="hover:text-[#ff748d] hover:cursor-pointer">
             <NavLink
-              to="/profile"
+              to="/profile/post"
               className={({ isActive }) => (isActive ? "text-[#ff748d]" : "")}
             >
               Profile

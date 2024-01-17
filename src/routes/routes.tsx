@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import Login from "../pages/Login.page";
 import SignUp from "../pages/SignUp.page";
@@ -17,6 +17,10 @@ import Public from "./Public";
 const routes = createBrowserRouter([
   {
     path: "/",
+    element: <Navigate to="/feed" />,
+  },
+  {
+    path: "/",
     element: <Private />,
     children: [
       {
@@ -24,6 +28,7 @@ const routes = createBrowserRouter([
         element: <Home />,
         children: [
           {
+            index: true,
             path: "feed",
             element: <FeedList />,
           },
@@ -32,7 +37,7 @@ const routes = createBrowserRouter([
             element: <Users />,
           },
           {
-            path: "/profile",
+            path: "profile",
             element: <Profile />,
             children: [
               {
@@ -71,4 +76,3 @@ const routes = createBrowserRouter([
 ]);
 
 export default routes;
-

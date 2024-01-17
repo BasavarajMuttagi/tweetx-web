@@ -5,14 +5,14 @@ import { getProfileStats } from "../Endpoints/InternalEndpoints";
 
 function Profile() {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["getallusers",Outlet,],
+    queryKey: ["getProfileStats"],
     queryFn: async () => getProfileStats(),
   });
 
   if (isLoading) return <div className="font-bold text-2xl">Loading....</div>;
   if (error) return "An error has occurred: " + error.message;
   return (
-    <div className="space-y-10 md:max-w-screen-md">
+    <div className="no-scrollbar space-y-10 md:max-w-screen-md">
       <div className="flex items-baseline p-2">
         <div className="w-[30%]">
           <div className="w-28 h-28">
@@ -25,7 +25,9 @@ function Profile() {
         </div>
 
         <div className="w-screen ml-14">
-          <h1 className="font-bold text-4xl text-slate-800">Basavaraj</h1>
+          <h1 className="font-bold text-4xl text-slate-800">
+            {data?.stats?.name}
+          </h1>
           <div className="font-medium  text-slate-600 flex  items-baseline space-x-8 space-y-10">
             <div>Posts : {data?.stats?.postsCount}</div>
             <div>Follower : {data?.stats?.followersCount}</div>

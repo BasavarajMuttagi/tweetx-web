@@ -91,3 +91,13 @@ export const getProfileStats = async () => {
     console.log(error);
   }
 };
+
+
+export const unfollowAUser = async (body: any) => {
+  try {
+    const record = await apiClient.post("/auth/unfollow", body);
+    return record.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

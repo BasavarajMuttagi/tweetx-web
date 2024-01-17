@@ -1,20 +1,21 @@
 import { Fragment, useState } from "react";
 import FeedCard from "./FeedCard.component";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAllPosts } from "../Endpoints/InternalEndpoints";
 import NewPostForm from "./NewPostForm.component";
 import { useLocation } from "react-router-dom";
+import convertDateToDays from "../helper";
 
 function FeedList() {
+  const queryClient = useQueryClient();
   const { pathname } = useLocation();
   const [isShowForm, setIsShowForm] = useState(false);
-  const [refetch, setRefetch] = useState(true);
   const closeAfterPost = (isShowForm: boolean) => {
     setIsShowForm(isShowForm);
-    setRefetch(!refetch);
+    queryClient.invalidateQueries({ queryKey: ["getallposts"] });
   };
   const { isLoading, data } = useQuery({
-    queryKey: ["getallposts", refetch],
+    queryKey: ["getallposts"],
     queryFn: async () => getAllPosts(),
   });
 
@@ -36,8 +37,8 @@ function FeedList() {
         {data?.posts?.map((eachPost: any) => (
           <Fragment key={eachPost._id}>
             <FeedCard
-              name={eachPost.email}
-              time={eachPost.email}
+              name={eachPost.userId.name}
+              time={convertDateToDays(eachPost.createdAt)}
               content={eachPost.content}
             />
           </Fragment>

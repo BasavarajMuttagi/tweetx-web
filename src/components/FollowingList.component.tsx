@@ -1,11 +1,18 @@
 import { Fragment } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAllfollowing } from "../Endpoints/InternalEndpoints";
 import FollowingCard from "./FollowingCard.component";
 
 function FollowingList() {
+  const queryClient = useQueryClient();
+  const refetch = () => {
+    setTimeout(() => {
+      queryClient.invalidateQueries({ queryKey: ["getallfollowing"] });
+    }, 200);
+  };
   const { isLoading, error, data } = useQuery({
     queryKey: ["getallfollowing"],
+    retry: 1000,
     queryFn: async () => getAllfollowing(),
   });
 
@@ -19,6 +26,7 @@ function FollowingList() {
             name={eachUser.name}
             email={eachUser.email}
             _id={eachUser._id}
+            refetch={refetch}
           />
           <div className="broder-t bg-black border"></div>
         </Fragment>
