@@ -69,7 +69,7 @@ function SignUpForm() {
       });
   };
   return (
-    <div className="overflow-hidden p-8 flex flex-col justify-start h-screen space-y-24 md:ml-20 md:mt-8">
+    <div className="p-8 flex flex-col justify-start h-screen space-y-24 md:ml-20 md:mt-8">
       <div className="space-y-10">
         <div>
           <h1 className="text-[#ff748d] font-semibold text-3xl md:text-4xl">
@@ -85,7 +85,7 @@ function SignUpForm() {
           </button>
         </div>
       </div>
-      <div className="space-y-12">
+      <div className="space-y-8">
         <h1 className="text-slate-600 font-bold text-2xl md:text-4xl">
           Create Account
         </h1>
@@ -160,7 +160,7 @@ function SignUpForm() {
             )}
           </div>
           <div className="flex justify-between items-center">
-            <p className="text-sm invisible font-medium text-slate-600 md:text-base">
+            <p className="text-sm  font-medium text-slate-600 md:text-base">
               Forgot Password?
             </p>
             <button className="relative p-2 font-semibold bg-[#ff748d] rounded-md px-8 text-white md:p-3 md:px-10">

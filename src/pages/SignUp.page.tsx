@@ -3,7 +3,7 @@ import SignUpForm from "../components/SignUpForm.component";
 
 function SignUp() {
   return (
-    <div className="overflow-hidden md:w-full md:flex md:justify-between md:h-screen">
+    <div className="md:w-full md:flex md:justify-between md:h-screen">
       <div className="md:w-[40%]">
         <SignUpForm />
       </div>
