@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { getAllUsers } from "../Endpoints/InternalEndpoints";
 
 function Users() {
-  const { isLoading, error, data, isFetched } = useQuery({
+  const { isLoading, error, data } = useQuery({
     queryKey: ["getallusers"],
     queryFn: async () => getAllUsers(),
   });
@@ -13,17 +13,21 @@ function Users() {
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className="space-y-2 w-full max-w-screen-md ">
-      {isFetched &&
-        data?.users?.map((eachUser: any) => (
-          <Fragment key={eachUser._id}>
-            <UserCard
-              name={eachUser.name}
-              email={eachUser.email}
-              _id={eachUser._id}
-            />
-            <div className="broder-t bg-black border"></div>
-          </Fragment>
-        ))}
+      {data?.users?.length == 0 ? (
+        <div className="text-center">No Users</div>
+      ) : (
+        ""
+      )}
+      {data?.users?.map((eachUser: any) => (
+        <Fragment key={eachUser._id}>
+          <UserCard
+            name={eachUser.name}
+            email={eachUser.email}
+            _id={eachUser._id}
+          />
+          <div className="broder-t bg-black border"></div>
+        </Fragment>
+      ))}
     </div>
   );
 }

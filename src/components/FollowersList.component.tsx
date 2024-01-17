@@ -12,8 +12,10 @@ function FollowersList() {
 
   if (isLoading) return <div className="font-bold text-2xl">Loading....</div>;
   if (error) return "An error has occurred: " + error.message;
+  
   return (
     <div className="space-y-2 w-full max-w-screen-md ">
+      {data?.followers?.length == 0 ? <div className='text-center'>No Followers</div> : ''}
       {data?.followers?.map((eachUser: any) => (
         <Fragment key={eachUser._id}>
           <UserCard

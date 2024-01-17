@@ -20,6 +20,11 @@ function FollowingList() {
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className="space-y-2 max-w-screen-md">
+      {data?.following?.length == 0 ? (
+        <div className="text-center">No Following</div>
+      ) : (
+        ""
+      )}
       {data?.following?.map((eachUser: any) => (
         <Fragment key={eachUser._id}>
           <FollowingCard

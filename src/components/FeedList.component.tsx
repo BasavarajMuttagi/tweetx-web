@@ -14,7 +14,7 @@ function FeedList() {
     setIsShowForm(isShowForm);
     queryClient.invalidateQueries({ queryKey: ["getallposts"] });
   };
-  const { isLoading, data ,error} = useQuery({
+  const { isLoading, data, error } = useQuery({
     queryKey: ["getallposts"],
     queryFn: async () => getAllPosts(),
   });
@@ -34,6 +34,13 @@ function FeedList() {
 
       <div className="space-y-10 w-full">
         {isShowForm && <NewPostForm sendCloseStatus={closeAfterPost} />}
+        {data?.posts?.length == 0 ? (
+          <div className="text-center mt-2">
+            {pathname == "/feed" ? "No Feed" : "No Posts"}
+          </div>
+        ) : (
+          ""
+        )}
         {data?.posts?.map((eachPost: any) => (
           <Fragment key={eachPost._id}>
             <FeedCard
