@@ -6,7 +6,7 @@ import UserCard from './UserCard.component';
 
 function FollowersList() {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["getallusers"],
+    queryKey: ["getAllfollowers"],
     queryFn: async () => getAllfollowers(),
   });
 
