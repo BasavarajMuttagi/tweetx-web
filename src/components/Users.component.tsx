@@ -7,7 +7,6 @@ function Users() {
   const { isLoading, error, data, isFetched } = useQuery({
     queryKey: ["getallusers"],
     queryFn: async () => getAllUsers(),
-    initialData: [],
   });
 
   if (isLoading) return <div className="font-bold text-2xl">Loading....</div>;

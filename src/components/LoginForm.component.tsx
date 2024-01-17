@@ -50,6 +50,7 @@ function LoginForm() {
         setToken(res.data.token);
         navigate("/");
         reset();
+        location.reload();
       })
       .catch((error: AxiosError) => {
         const data = error.response?.data as any;

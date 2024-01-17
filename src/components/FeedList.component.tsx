@@ -14,13 +14,13 @@ function FeedList() {
     setIsShowForm(isShowForm);
     queryClient.invalidateQueries({ queryKey: ["getallposts"] });
   };
-  const { isLoading, data } = useQuery({
+  const { isLoading, data ,error} = useQuery({
     queryKey: ["getallposts"],
     queryFn: async () => getAllPosts(),
   });
 
   if (isLoading) return <div className="font-bold text-2xl">Loading....</div>;
-
+  if (error) return "An error has occurred: " + error.message;
   return (
     <div className={`space-y-10 w-full max-w-screen-md`}>
       <div className={`${pathname !== "/feed" ? "visible" : "invisible"}`}>

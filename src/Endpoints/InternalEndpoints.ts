@@ -82,7 +82,6 @@ export const getAllfollowing = async () => {
   }
 };
 
-
 export const getProfileStats = async () => {
   try {
     const record = await apiClient.get("/auth/getstats");
@@ -91,7 +90,6 @@ export const getProfileStats = async () => {
     console.log(error);
   }
 };
-
 
 export const unfollowAUser = async (body: any) => {
   try {
